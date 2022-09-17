@@ -7,4 +7,21 @@ The goal of this analysis to identify states that have mostly likely had a housi
 
 From the analysis, we can see that the following three states have had the largest drop in house values post the hikes. 
 
-1. 
+### Steps to run the analysis locally 
+1. Download the ZVHI file from https://www.zillow.com/research/data/ where date type="ZVHI All Homes" and geography = "Metro & U.S." 
+
+2. Clone the Repo. 
+3. Update the zhvi_data_loc on #38. 
+
+
+### To Do 
+##### Analysis 
+1. Adjust for inflation to get a more grounded values in price increase/decrease given the huge fluctuations in inflation since Covid (March-2020). 
+
+2. Include additional data sources like AirBnB rental data and House Rent data to get a more well-rounded picture. 
+
+
+##### Technology 
+1. Replace numpy and list comprehension operations with PySpark operations. 
+
+2. Utilize multi-core processing in PySpark to speed up the process. 
