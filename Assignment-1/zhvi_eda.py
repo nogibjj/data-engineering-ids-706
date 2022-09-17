@@ -42,13 +42,13 @@ except Exception as ee:
     print("Error reading/transforming input data")
     print(traceback.format_exc())
     sys.exit(1)
+
 """
 The following transformations are performed on the ZHVI RDD:
     - Covert the data from wide to long format using the "melt_rdd" function
     - Calculate the percent change in the ZHVI value using the "calculate_percent_change" function
 """
 try:
-
     zhvi_str_cols = ["RegionID", "SizeRank", "RegionName", "StateName", "RegionType"]
     zhvi_date_cols = list(set([col[0] for col in zhvi_rdd.dtypes]) - set(zhvi_str_cols))
     zhvi_rdd = melt_rdd(
@@ -69,14 +69,12 @@ except Exception as ee:
     print(traceback.format_exc())
     sys.exit(1)
 
-
 """
-Analyse the price change after Fed interest hikes.
+Analyse the price change after Fed began hiking interest rates
     - Filter to only include house prices post interest hike
     - Calculate slope of best fit line to determine the average price change
     - Store results in a dictionary
 """
-
 all_states = zhvi_rdd.select("StateName").distinct().collect()
 all_states = [x["StateName"] for x in all_states]
 results_dict = {}

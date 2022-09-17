@@ -9,8 +9,11 @@ From the analysis, we can see that the following three states have had the large
 
 ### Steps to run the analysis locally 
 1. Download the ZVHI file from https://www.zillow.com/research/data/ where date type="ZVHI All Homes" and geography = "Metro & U.S." 
-2. Clone the Repo. 
-3. Update the zhvi_data_loc on #38. 
+2. Clone the Repo.
+3. Install all libraries from the requirements.txt file
+4. Update the zhvi_data_loc on #38. 
+5. Run zhvi_eda.py
+
 
 
 ### To Do 
