@@ -23,7 +23,7 @@ From the analysis, we can see that the following three states have had the large
 2. Include additional data sources like AirBnB rental data and House Rent data to get a more well-rounded picture. 
 
 
-##### Technology 
+##### Programming 
 1. Replace numpy and list comprehension operations with PySpark operations. 
 
 2. Utilize multi-core processing in PySpark to speed up the process. 
