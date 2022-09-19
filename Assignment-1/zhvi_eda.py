@@ -2,7 +2,7 @@
 Data Engineering - Assignment 1 
 Analyze the Zillow House Value Index (ZHVI) data set to identify the top 3 states with the biggest housing bubble
 """
-
+#%%
 from datetime import datetime as dt
 import sys
 import traceback
@@ -102,7 +102,7 @@ for state in all_states:
 Plot the full price history for the top 3 states with the biggest rate of drop in prices after the interest hike
 """
 higest_drop_states = sorted(results_dict.items(), key=lambda x: x[1])[:3]
-
+#%%
 for state in higest_drop_states:
     (
         pre_date_dates,
@@ -124,3 +124,5 @@ for state in higest_drop_states:
     ax.set_ylabel("Percentage Change in House Value - Month over Month")
     fig.suptitle(f"House prices for state {state[0]}", fontsize=16)
     plt.show()
+
+# %%

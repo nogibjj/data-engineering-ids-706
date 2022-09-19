@@ -18,8 +18,6 @@ Function to melt the RDD into a long format
 Referencing Stack Overflow
 zero323's answer on https://stackoverflow.com/questions/41670103/how-to-melt-spark-dataframe
 """
-
-
 def melt_rdd(
     df: DataFrame,
     id_vars: Iterable[str],
@@ -40,7 +38,6 @@ def melt_rdd(
     cols = id_vars + [col("_vars_and_vals")[x].alias(x) for x in [var_name, value_name]]
     return _tmp.select(*cols)
 
-
 """
 Function to calculate the percent change
 
@@ -51,8 +48,6 @@ Function to calculate the percent change
     
     :return: The RDD with the percent change calculated for value in the parition column
 """
-
-
 def calculate_percent_change(
     rdd: DataFrame, partition_col: str, value_col: str, date_col: str
 ) -> DataFrame:
@@ -72,7 +67,6 @@ def calculate_percent_change(
     )
     return rdd
 
-
 """
 Function to format the input RDD into a format that can be used by the charting library
     :param rdd: Input RDD
@@ -81,8 +75,6 @@ Function to format the input RDD into a format that can be used by the charting 
 
     :return: The RDD formatted for the charting library
 """
-
-
 def return_chart_data(rdd, date, state):
     state_rdd = rdd.where(rdd.StateName == state)
     pre_date_rdd = state_rdd.where(state_rdd.date <= date)

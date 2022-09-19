@@ -11,17 +11,17 @@ From the analysis, we can see that the following three states have had the large
 1. Download the ZVHI file from https://www.zillow.com/research/data/ where date type="ZVHI All Homes" and geography = "Metro & U.S." 
 2. Clone the Repo.
 3. Install all libraries from the requirements.txt file
-4. Update the zhvi_data_loc on #38. 
-5. Run zhvi_eda.py
+4. Instal Java (helpful link - https://www.guru99.com/how-to-install-java-on-ubuntu.html)
+5. Update the zhvi_data_loc on #38. 
+6. Run zhvi_eda.py
 
 
 
 ### To Do 
 #### Analysis 
-1. Adjust for inflation to get more accurate changes in price. This is important given the huge fluctuations in inflation since Covid (March-2020). 
+1. Adjust for inflation to get more accurate changes in price. 
 
 2. Include additional data sources like AirBnB rental data and House Rent data to get a more well-rounded picture. 
-
 
 ##### Technology 
 1. Replace numpy and list comprehension operations with PySpark operations. 
