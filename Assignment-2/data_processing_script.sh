@@ -17,3 +17,5 @@ if [ $n -gt 0 ]; then
     head -n $n $full_file_name > "${file_name[0]}_processed.csv"
     echo "File created: ${file_name[0]}_processed.csv"
 fi
+
+sudo azcopy copy "${file_name[0]}_processed.csv" "$AZURE_CONNECTION_STRING"
