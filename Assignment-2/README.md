@@ -9,6 +9,8 @@ In this assignment, the goal is to write a bash script to perform Data Cleaning 
 2. Verify azcopy is installed using "sudo azcopy --help"
 3. Create a new storage account resource from the azure home page. 
 4. After the storage resource has been created, navigate to containers (under data storage) and create a new container. 
-5. Navigate inside the container, choose the required folder and choose Shared access token and copy the token. 
+5. Navigate inside the container, choose the required folder and choose Shared access token and copy the token. Ensure you change the following 
+    - Change the required permissions (default is Read only).
+    - Increase the default expiry time if required (default is 8 hours)
 6. Using the "export" command, set a variable to use the connection string (Remember to not add hardcode it in the code while pushing to git.)
     - export AZURE_CONNECTION_TOKEN='<<Paste Token Here>>'
