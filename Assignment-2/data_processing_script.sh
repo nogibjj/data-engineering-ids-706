@@ -1,7 +1,7 @@
 
-#!/usr/bin/env bash
+#!/bin/bash
 
-read -p "Enter the name of the file you want to clean: " full_file_name
+full_file_name=${1:-airtravel.csv}
 
 # Check if the file exists
 if [ ! -f "$full_file_name" ]; then
@@ -10,7 +10,8 @@ if [ ! -f "$full_file_name" ]; then
 fi
 
 # Select top n rows
-read -p "Enter the number of rows you want to select: " n
+n=${2:-10}
+
 # check in n is greater than 0
 if [ $n -gt 0 ]; then
     IFS='.' read -a file_name <<< "$full_file_name"
@@ -18,4 +19,5 @@ if [ $n -gt 0 ]; then
     echo "File created: ${file_name[0]}_processed.csv"
 fi
 
-sudo azcopy copy "${file_name[0]}_processed.csv" "$AZURE_CONNECTION_STRING"
+sudo azcopy copy "${file_name[0]}_processed.csv" $3
+echo "File uploaded to Azure Blob Storage"
