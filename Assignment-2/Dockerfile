@@ -1,5 +1,3 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/python-3/.devcontainer/base.Dockerfile
-
 FROM peterdavehello/azcopy
 
 RUN apk update && apk add bash && apk add sudo
