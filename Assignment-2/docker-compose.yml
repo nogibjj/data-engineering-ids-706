@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  data_processing:
+    build: .
+    command: bash data_processing_script.sh app/airtravel.csv 5 test
+    deploy:
+      replicas: 1
