@@ -4,4 +4,4 @@ __pycache__/
 *.pyc
 java_installation/
 
-secrets.py
+*secrets.py
