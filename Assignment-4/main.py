@@ -4,7 +4,7 @@ import yfinance
 app = FastAPI()
 
 
-@app.get("/healthCheck")
+@app.get("/health_check")
 async def root():
     return {"message": "OK"}
 
@@ -48,4 +48,6 @@ async def get_dividends(ticker: str):
         return {"ticker": ticker, "dividends": stock.dividends.to_dict()}
     except Exception as ee:
         return {"error": str(ee)}
+
+
 
