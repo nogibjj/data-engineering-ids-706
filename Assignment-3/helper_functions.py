@@ -46,8 +46,17 @@ def drop_table(conn):
     conn.commit()
     print(f"Dropped table -- {config.table_name}")
 
-if __name__ == "__main__":
-    conn = connect_azure_sql()
-    drop_table(conn)
-    create_table(conn)
-    conn.close()
+regression_query = '''
+select symbol, 1.0*sum((x-xbar)*(y-ybar))/sum((x-xbar)*(x-xbar)) as Beta
+from
+(
+    select symbol,
+        avg(adj_close_prc) over(partition by symbol) as ybar,
+        adj_close_prc as y,
+        avg(datediff(day,'20140102',[date])) over(partition by symbol) as xbar,
+        datediff(day,'20140102',date) as x
+    from [dbo].[stock_data] where symbol='{}'
+) as Calcs
+group by symbol
+having 1.0*sum((x-xbar)*(y-ybar))/sum((x-xbar)*(x-xbar))>0
+'''
